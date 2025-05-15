@@ -72,7 +72,7 @@ def write_file():
     content = request.data.decode()
     with open(f"./uploads/{filename}", "w") as f:  # 🔥 Path Traversal Risk
         f.write(content)
-    return "File written."
+    return "File written." # changes in file
 
 if __name__ == "__main__":
     init_db()
