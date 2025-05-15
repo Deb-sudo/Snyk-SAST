@@ -14,17 +14,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js (optional, required if using Node project)
+    - name: Set up Node.js (for Node.js projects only)
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
-    - name: Install dependencies (if applicable)
+    - name: Install dependencies (if using Node.js)
       run: npm install
 
+    - name: Set up Snyk CLI
+      uses: snyk/actions/setup@v2
+
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions@v1
+      run: snyk test
       env:
         SNYK_TOKEN: a1eb8b76-9f7f-4ff8-8fcb-e951abcdfa23
-      with:
-        args: test
+        
