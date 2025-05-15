@@ -20,7 +20,7 @@ jobs:
       - name: Run Snyk Code (SAST) scan
         run: snyk code test --sarif-file-output=snyk-code.sarif
         env:
-          SNYK_TOKEN: 3bcdc01c-acaa-41af-b918-9138118eefcd
+          SNYK_TOKEN: 268898ef-00bd-4d1f-a3ed-8b101f14d379
 
       - name: Upload results to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
